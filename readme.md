@@ -6,7 +6,7 @@ MVC , Usecase, SSD, Contract
 - Contract : 자세한 system behavior를 기술
 
 # O-Market Pos System
-## Primary Actor : Cashier    
+Primary Actor : Cashier    
 
 ## Main Success scenario : 
 <img width="708" alt="스크린샷 2020-12-24 오전 9 52 33" src="https://user-images.githubusercontent.com/42709887/103047116-c9221b80-45cd-11eb-8c9f-7362b4362514.png">
