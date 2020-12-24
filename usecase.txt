@@ -1,0 +1,55 @@
+## UseCase
+
+- Primary Actor : Cashier
+
+- Stakeholders and interests : 
+    - Cashier : wants accurate , fast entry and no payment errors
+    - Salesperson : Wants sales commissions updates
+    - Customer : Wants purchase and fast service with minimal effort. wants easily visible display of
+    entered items and prices
+    - Company : wants to accurately record transactions and satisfy customer interests.
+    - Manager : wants to be able to quickly perform override operations, and easily debug cashier problems
+    - Goverment Tax Agencies : wants to collect tax from every sale
+    - Payemt authorization service : wants to receive digital authorization requests in the correct format and protocol. 
+
+- Preconditions and Postconditions
+    - Preconditions: Cashier is identified and authenticated
+    - Postconditions: Sale is saved. Tax is correctly calculated. Accounting and Inventory are updated. Commisions recorded. Receipt is generated.
+
+- Main Success Scenario :
+    1. Customer arrives at a Pos checkout with items to purchase
+    2. Cashier starts a new sale
+    3. Cashier enters item identifier
+    4. Records each sale line item and presents item description and running total
+    Cashier repeats steps 3-4 until indicates done
+    5. Presents total with taxes calculated
+    6. Cashier tells Customer the total, and asks for payment
+    7. Customer pays
+    8. Handles payment
+    9. Logs the completed sale and sends information to the external Accounting and Inventory systems. Systems presents receipt
+
+- Extensions :
+    3a. Invalid identifier :
+        1. System signals error and rejects entry
+    3b. There are multiple of same item category and tracking unique item idntity not important
+    (ex. 5 packages of veggie-burgers):
+        1. Cashier can enter item category identifier and the quantity
+    3-6a. Customer asks Cashier to remove an item from the purchase:
+        1. Cashier enters the item identifier for removal from the sale
+        2. System displays updated running total
+    7b. Paying by credit:
+        1. Customer enters their credit card information
+        2. System requests payment validation from external Payment authorization serive systems
+            2a. System detects failure to collaborate with external system
+                1. System signals error to Cashier
+                2. Cashier asks Customer for alternate payment
+    ...
+
+- Special Requirements :
+    - Touch screen UI on a large flat panel monitor
+    - Credit authorization response within 30 s
+
+- Technology and Data Variations List:
+    - 3a. Item identifier entered by laser scanner or keyboard (so no hard coding)
+    - 3b. Item identifier may ve any UPC, EAN, JAN, or SKU coding scheme
+
