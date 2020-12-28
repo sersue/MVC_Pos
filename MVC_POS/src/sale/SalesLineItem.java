@@ -6,7 +6,7 @@ public class SalesLineItem {
 
 	public void makeSaleLineItem() {
 		// TODO Auto-generated method stub
-		ArrayList<SalesLineItem> saleLineItem = new ArrayList();
+		ArrayList<SalesLineItem> saleLine = new ArrayList<SalesLineItem>();
 		System.out.println("saleLineItem 생성!");
 	}
 

@@ -1,10 +1,9 @@
 package market.pos;
 
 import controller.Interactor;
-import database.MarketDAO;
+import database.ProductDescription;
 import ui.CmdUI;
-import java.sql.*;
-import java.util.ArrayList;
+
 
 public class Main {
 	
@@ -14,7 +13,7 @@ public class Main {
 	
 	 public static void main(String[] args){
 	        
-		 MarketDAO dao = new MarketDAO();
+		 ProductDescription dao = new ProductDescription();
 		 Interactor interactor = new Interactor(dao);
 		 
 		 ui = new CmdUI(interactor);

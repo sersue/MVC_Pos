@@ -22,10 +22,10 @@ public class CmdUI {
                     quit = true;
                     break;
                 case 1:
-                    makeNewSale();
+                    newSale();
                     break;
                 case 2:
-                    enterItem();
+                    enter();
                   
                 case 3:
                     endSale();
@@ -37,12 +37,12 @@ public class CmdUI {
         System.out.println("bye");
     }
 
-    public void makeNewSale(){
-        
+    public void newSale(){
         interactor.makeNewSale();
 
     }
-    public void enterItem(){
+    public void enter(){
+    	
         System.out.println("enter item id : ");
         String itemid = scanner.next();
 
@@ -50,6 +50,8 @@ public class CmdUI {
         int quantity = scanner.nextInt();
 
         interactor.enterItem(itemid,quantity);
+        System.out.println("enter");
+
 
     }
     public void endSale(){

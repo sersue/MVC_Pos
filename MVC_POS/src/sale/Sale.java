@@ -1,17 +1,25 @@
 package sale;
 
-import java.util.ArrayList;
+import database.ProductDescription;
 
 public class Sale {
 	
+	private SalesLineItem sli;
+
+	public Sale() {
+		 super();
+		// TODO Auto-generated constructor stub
+	}
 	
-	public void Sale() {
+	public void sale() {
 		Sale s = new Sale();
-		System.out.println("Sale 객체 생성 ! ");
+		System.out.println("Sale 객체 s 생성 ! ");
+		sli = new SalesLineItem();
+		sli.makeSaleLineItem();
 	}
 	
 	
-	ArrayList<SalesLineItem> saleLineItem = new ArrayList();
+	
 
 	
 	
