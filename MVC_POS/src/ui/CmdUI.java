@@ -1,6 +1,5 @@
 package ui;
 
-
 import java.util.Scanner;
 import controller.Interactor; 
 
@@ -23,14 +22,14 @@ public class CmdUI {
                     quit = true;
                     break;
                 case 1:
-                    newSale();
+                    makeNewSale();
                     break;
                 case 2:
                     enterItem();
-                    break;
+                  
                 case 3:
                     endSale();
-                    break;
+                  
                 default:
                     break;
             }
@@ -38,10 +37,10 @@ public class CmdUI {
         System.out.println("bye");
     }
 
-    public void newSale(){
+    public void makeNewSale(){
         
-        System.out.println("make new Sale");
-        // System.out.print(controller.makeNewSale());
+        System.out.println("Sale start!");
+        interactor.makeNewSale();
 
     }
     public void enterItem(){
@@ -51,7 +50,7 @@ public class CmdUI {
         System.out.println("enter Quantity : ");
         int quantity = scanner.nextInt();
 
-        // System.out.print(controller.enterItem(itemid,quantity));
+//        interactor.enterItem(itemid,quantity);
 
     }
     public void endSale(){

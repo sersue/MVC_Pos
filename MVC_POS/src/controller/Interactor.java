@@ -1,15 +1,27 @@
 package controller;
 
+import database.MarketDAO;
+import sale.Sale;
+
 public class Interactor {
 	
-	// public void makeNewSale(){
+	private MarketDAO dao;
+	
+	 public Interactor(MarketDAO dao) {
+		 super();
+		 this.dao = dao;
+		// TODO Auto-generated constructor stub
+	}
 
-    // }
-    // public void enterItem(itemid,quantity){
-
-    // }
-    // public void endSale(){
-
-    // }
+	public void makeNewSale(){
+		Sale sale = new Sale();
+		System.out.println("Sale 객체 생성 ! ");
+     }
+//     public void enterItem(itemid,quantity){
+//
+//     }
+//     public void endSale(){
+//
+//     }
 
 }

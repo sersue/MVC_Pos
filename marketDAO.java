@@ -27,8 +27,7 @@ public class marketDAO { //data access object
         try {
             // DB에 연결
             conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "anstnfla25");
-            
-            
+    
             String query = " SELECT * FROM item "; 
             stmt = conn.prepareStatement(query);
             
