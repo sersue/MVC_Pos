@@ -39,7 +39,6 @@ public class CmdUI {
 
     public void makeNewSale(){
         
-        System.out.println("Sale start!");
         interactor.makeNewSale();
 
     }
@@ -50,7 +49,7 @@ public class CmdUI {
         System.out.println("enter Quantity : ");
         int quantity = scanner.nextInt();
 
-//        interactor.enterItem(itemid,quantity);
+        interactor.enterItem(itemid,quantity);
 
     }
     public void endSale(){

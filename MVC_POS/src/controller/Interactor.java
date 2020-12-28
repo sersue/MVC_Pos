@@ -2,11 +2,13 @@ package controller;
 
 import database.MarketDAO;
 import sale.Sale;
+import ui.CmdUI;
 
 public class Interactor {
 	
 	private MarketDAO dao;
-	
+	private Sale s;
+	 
 	 public Interactor(MarketDAO dao) {
 		 super();
 		 this.dao = dao;
@@ -14,12 +16,15 @@ public class Interactor {
 	}
 
 	public void makeNewSale(){
-		Sale sale = new Sale();
-		System.out.println("Sale 객체 생성 ! ");
+		s.Sale();
+		
      }
-//     public void enterItem(itemid,quantity){
-//
-//     }
+	
+     public void enterItem(String itemid,String quantity){
+    	 getProductDesc(itemid);
+    	 
+
+    }
 //     public void endSale(){
 //
 //     }
