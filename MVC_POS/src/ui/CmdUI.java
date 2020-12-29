@@ -1,6 +1,7 @@
 package ui;
 
 import java.util.Scanner;
+
 import controller.Interactor; 
 
 public class CmdUI {
@@ -8,6 +9,9 @@ public class CmdUI {
     private static Scanner scanner = new Scanner(System.in);
 
     private Interactor interactor;
+    
+    private String itemid;
+    private int quantity;
 
     public CmdUI(Interactor interactor){
         this.interactor = interactor;
@@ -44,10 +48,10 @@ public class CmdUI {
     public void enter(){
     	
         System.out.println("enter item id : ");
-        String itemid = scanner.next();
+        itemid = scanner.next();
 
         System.out.println("enter Quantity : ");
-        int quantity = scanner.nextInt();
+        quantity = scanner.nextInt();
 
         interactor.enterItem(itemid,quantity);
         System.out.println("enter");
