@@ -7,33 +7,32 @@ import java.util.Iterator;
 
 public class ProductDescription {
 	
-	HashMap map;
+	public static Map<String,String>map;
 	
-	public Map ProductDescription() {
-		Map <String,String> map = new HashMap<String,String>();
-		
-//		String itemValue[][] = {{"apple"},{},{},{}};
+	public void ProductDescription() {
+		map = new HashMap<String,String>();
 		
 		map.put("aa", "apple");
 		map.put("ab", "pancil");
 		map.put("bb", "book");
 		map.put("ba", "snack");
 		
-	return map;
+	
 
 	}
 
 	public String get(String itemid) {
-		// TODO Auto-generated method stub
-		String desc ="";
-		Iterator it = map.values().iterator();
+		ProductDescription();
 		
-		while(it.hasNext()) {
+		String desc ="";
+		Iterator<String> itr = map.values().iterator();
+	
+		while(itr.hasNext()) {
 			if(map.containsKey(itemid)) {
 				desc = (String)map.get(itemid);
+				break;
 			}
 		}
-	
 		return desc;
 	}
 }

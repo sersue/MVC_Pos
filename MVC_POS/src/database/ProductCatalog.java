@@ -3,10 +3,13 @@ package database;
 public class ProductCatalog {
 
 	
-	public void getProductDesc(String itemid) {
+	public String getProductDesc(String itemid) {
 		// TODO Auto-generated method stub
+   	   
 		ProductDescription desc = new ProductDescription();
 		desc.get(itemid);
+		
+		return desc.get(itemid);
 		
 	}
 

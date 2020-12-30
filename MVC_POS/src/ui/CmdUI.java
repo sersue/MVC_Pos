@@ -1,7 +1,6 @@
 package ui;
 
 import java.util.Scanner;
-
 import controller.Interactor; 
 
 public class CmdUI {
@@ -30,7 +29,7 @@ public class CmdUI {
                     break;
                 case 2:
                     enter();
-                  
+             
                 case 3:
                     endSale();
                   
@@ -52,9 +51,13 @@ public class CmdUI {
 
         System.out.println("enter Quantity : ");
         quantity = scanner.nextInt();
+        
+        String result = interactor.enterItem(itemid,quantity);
+          
+        System.out.println("구매 목록 : ");
+        
+        System.out.println(result);
 
-        interactor.enterItem(itemid,quantity);
-        System.out.println("enter");
 
 
     }
