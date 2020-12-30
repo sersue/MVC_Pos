@@ -1,37 +1,37 @@
 package controller;
 import ui.CmdUI;
-
 import database.ProductCatalog;
 import database.ProductDescription;
 import sale.Sale;
-
+import database.ItemID;
 
 public class Interactor {
 	
-	private ProductDescription dao;
+	private ProductCatalog productcatalog;
 	private String itemid;
 	private int quantity;
+	private Sale currentSale;
 	
-	 public Interactor(ProductDescription dao) {
+	 public Interactor(ProductCatalog productcatalog) {
 		 super();
-		 this.dao = dao;
+		 this.productcatalog = productcatalog;
 		// TODO Auto-generated constructor stub
 	}
 
 	public void makeNewSale(){
-		Sale s = new Sale();
-		s.sale();
-		System.out.println("item을 enter 해주세요!");
+		currentSale = new Sale();
+		System.out.println("new Sale 생성 !");
      }
 	
 	
-    public String enterItem(String itemid,int quantity){
+    public void enterItem(ItemID itemid,int quantity){
     	
     	 ProductCatalog spec = new ProductCatalog();
     	 System.out.println("Searching at productCatalog: Please Wait");
-    	 spec.getProductDesc(itemid); 	
+    	 ProductDescription desc = spec.getProductDesc(itemid); 
+    
+    	 currentSale.makeLineItem(desc,quantity);
     	 
- 		 return spec.getProductDesc(itemid);
 
     }
 //     public void endSale(){

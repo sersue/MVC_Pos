@@ -1,21 +1,27 @@
 package sale;
 
+import java.awt.List;
+import java.util.ArrayList;
+
 import database.ProductDescription;
 
 public class Sale {
 	
-	private SalesLineItem sli;
+	private ArrayList<SalesLineItem> sl = new <SalesLineItem> ArrayList();
 
 	public Sale() {
 		 super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void sale() {
-		Sale s = new Sale();
-		System.out.println("Sale 객체 s 생성 ! ");
-		sli = new SalesLineItem();
-		sli.makeSaleLineItem();
+	public void makeLineItem(ProductDescription desc, int quantity) {
+		// TODO Auto-generated method stub
+		//add sl  
+		sl.add(new SalesLineItem(desc,quantity));
+	
+
+		
+		
 	}
 	
 	

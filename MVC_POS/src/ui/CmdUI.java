@@ -29,9 +29,9 @@ public class CmdUI {
                     break;
                 case 2:
                     enter();
-             
                 case 3:
                     endSale();
+                    Payment();
                   
                 default:
                     break;
@@ -40,7 +40,12 @@ public class CmdUI {
         System.out.println("bye");
     }
 
-    public void newSale(){
+    private void Payment() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void newSale(){
         interactor.makeNewSale();
 
     }
@@ -52,11 +57,9 @@ public class CmdUI {
         System.out.println("enter Quantity : ");
         quantity = scanner.nextInt();
         
-        String result = interactor.enterItem(itemid,quantity);
+        result = interactor.enterItem(itemid,quantity);
           
-        System.out.println("구매 목록 : ");
-        
-        System.out.println(result);
+        System.out.println("구매 목록 : " + result);       
 
 
 

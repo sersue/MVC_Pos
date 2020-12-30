@@ -2,12 +2,24 @@ package sale;
 
 import java.util.ArrayList;
 
+import database.ProductDescription;
+
 public class SalesLineItem {
 
-	public void makeSaleLineItem() {
-		// TODO Auto-generated method stub
-		ArrayList<SalesLineItem> saleLine = new ArrayList<SalesLineItem>();
-		System.out.println("saleLineItem 생성!");
+	private ProductDescription desc;
+	private int quantity;
+	
+	public SalesLineItem(ProductDescription desc, int quantity) {
+		this.desc = desc;
+		this.quantity = quantity;
+		// TODO Auto-generated constructor stub
 	}
+	public ProductDescription getdesc() {
+		return desc;
+	}
+	public int getquantity() {
+		return quantity;
+	}
+	
 
 }
