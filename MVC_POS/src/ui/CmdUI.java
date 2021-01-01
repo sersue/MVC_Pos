@@ -2,6 +2,7 @@ package ui;
 
 import java.util.Scanner;
 import controller.Interactor; 
+import database.ItemID;
 
 public class CmdUI {
 
@@ -9,7 +10,7 @@ public class CmdUI {
 
     private Interactor interactor;
     
-    private String itemid;
+    private ItemID itemid;
     private int quantity;
 
     public CmdUI(Interactor interactor){
@@ -52,14 +53,12 @@ public class CmdUI {
     public void enter(){
     	
         System.out.println("enter item id : ");
-        itemid = scanner.next();
-
+        //cast Int to ItemID 
+        itemid = new ItemID(scanner.nextInt());
         System.out.println("enter Quantity : ");
         quantity = scanner.nextInt();
-        
-        result = interactor.enterItem(itemid,quantity);
-          
-        System.out.println("구매 목록 : " + result);       
+
+        System.out.println(interactor.enterItem(itemid,quantity));       
 
 
 

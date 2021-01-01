@@ -14,11 +14,15 @@ public class Sale {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void makeLineItem(ProductDescription desc, int quantity) {
+	public ArrayList<SalesLineItem> makeLineItem(ProductDescription desc, int quantity) {
 		// TODO Auto-generated method stub
 		//add sl  
-		sl.add(new SalesLineItem(desc,quantity));
-	
+	    sl.add(new SalesLineItem(desc,quantity));
+	    for(int i=0;i<sl.size();i++) {
+	    	System.out.println("hi"+sl.get(i));
+	    }
+	    
+		return sl;
 
 		
 		

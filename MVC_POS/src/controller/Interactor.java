@@ -3,6 +3,10 @@ import ui.CmdUI;
 import database.ProductCatalog;
 import database.ProductDescription;
 import sale.Sale;
+import sale.SalesLineItem;
+
+import java.util.ArrayList;
+
 import database.ItemID;
 
 public class Interactor {
@@ -24,14 +28,14 @@ public class Interactor {
      }
 	
 	
-    public void enterItem(ItemID itemid,int quantity){
+    public ArrayList<SalesLineItem> enterItem(ItemID itemid,int quantity){
     	
     	 ProductCatalog spec = new ProductCatalog();
     	 System.out.println("Searching at productCatalog: Please Wait");
     	 ProductDescription desc = spec.getProductDesc(itemid); 
     
-    	 currentSale.makeLineItem(desc,quantity);
-    	 
+    	 ArrayList<SalesLineItem> result = currentSale.makeLineItem(desc,quantity);
+    	 return result;
 
     }
 //     public void endSale(){

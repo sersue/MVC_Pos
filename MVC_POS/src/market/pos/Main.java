@@ -13,7 +13,7 @@ public class Main {
 	
 	 public static void main(String[] args){
 	       
-		 //repository arraylist 생
+		 //repository arraylist 생성 
 		 productcatalog = new ProductCatalog();
 		 Interactor interactor = new Interactor(productcatalog);
 		 
