@@ -33,14 +33,14 @@ public class CmdUI {
                     enter();
                     break;
                 case 3:
-                    endSale();
                 	Payment();
+                	quit = true;
                   
                 default:
                     break;
             }
         }
-        System.out.println("bye");
+        System.out.println("bye!");
     }
 
     
@@ -61,12 +61,10 @@ public class CmdUI {
              
 
     }
-    public void endSale(){
-        System.out.println("End Sale");
-    }
+   
     private void Payment() {
 		// TODO Auto-generated method stub
-    	System.out.println(interactor.makePayment(quantity));  
+    	System.out.println("Total price = "+interactor.makePayment(quantity));  
         
 
 	}
