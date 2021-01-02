@@ -1,8 +1,10 @@
 package sale;
 
 import java.awt.List;
+
 import java.util.ArrayList;
 
+import database.ProductCatalog;
 import database.ProductDescription;
 
 public class Sale {

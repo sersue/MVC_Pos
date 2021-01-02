@@ -5,22 +5,28 @@ import java.util.Iterator;
 import database.ProductCatalog;
 public class ProductDescription {
 	
-	public static HashMap<ItemID,ProductDescription>map = new <ItemID, ProductDescription> HashMap();
-	private ItemID id;
-	private Money price;
+	private String id;
+	private String price;
 	private String description;
 	
-	public ProductDescription(ItemID id, Money price, String description) {
+	
+	@Override
+	public String toString() {
+		return description+":"+ price + "Won";
+	}
+
+	public ProductDescription(String id ,String price, String description) {
+		
 		// TODO Auto-generated constructor stub
 		this.id = id;
 		this.price = price;
 		this.description = description;
 	}
 	
-	public ItemID getItemID() {
+	public String getItemID() {
 		return id;
 	}
-	public Money getMoney() {
+	public String getMoney() {
 		return price;
 	}
 	public String getdescription() {

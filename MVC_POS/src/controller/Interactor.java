@@ -7,7 +7,7 @@ import sale.SalesLineItem;
 
 import java.util.ArrayList;
 
-import database.ItemID;
+
 
 public class Interactor {
 	
@@ -25,10 +25,11 @@ public class Interactor {
 	public void makeNewSale(){
 		currentSale = new Sale();
 		System.out.println("new Sale 생성 !");
+		
      }
 	
 	
-    public ArrayList<SalesLineItem> enterItem(ItemID itemid,int quantity){
+    public ArrayList<SalesLineItem> enterItem(String itemid,int quantity){
     	
     	 ProductCatalog spec = new ProductCatalog();
     	 System.out.println("Searching at productCatalog: Please Wait");

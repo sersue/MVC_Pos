@@ -15,8 +15,9 @@ public class Main {
 	       
 		 //repository arraylist 생성 
 		 productcatalog = new ProductCatalog();
+    	 productcatalog.ProductCatalog1();
 		 Interactor interactor = new Interactor(productcatalog);
-		 
+		
 		 ui = new CmdUI(interactor);
 		 ui.start();
 		 
