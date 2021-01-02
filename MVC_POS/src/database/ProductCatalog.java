@@ -17,7 +17,7 @@ public class ProductCatalog {
 	public void ProductCatalog1() {
 		String id1 = "1";
 		String id2 = "2";
-		String price = "2000";
+		int price = 2000;
 		
 		ProductDescription desc1,desc2; 
 		desc1 = new ProductDescription(id1,price,"apple");

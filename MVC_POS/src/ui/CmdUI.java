@@ -31,9 +31,10 @@ public class CmdUI {
                     break;
                 case 2:
                     enter();
+                    break;
                 case 3:
                     endSale();
-                    Payment();
+                	Payment();
                   
                 default:
                     break;
@@ -42,10 +43,7 @@ public class CmdUI {
         System.out.println("bye");
     }
 
-    private void Payment() {
-		// TODO Auto-generated method stub
-		
-	}
+    
 
 	public void newSale(){
         interactor.makeNewSale();
@@ -61,13 +59,16 @@ public class CmdUI {
 
         System.out.println(interactor.enterItem(itemid,quantity));       
 
-
-
     }
     public void endSale(){
         System.out.println("End Sale");
-        // System.out.print(controller.endSale());
     }
+    private void Payment() {
+		// TODO Auto-generated method stub
+        System.out.println("Total price is : ");
+        System.out.println(interactor.makePayment(quantity));       
+
+	}
     
 
     public int getCommand(){

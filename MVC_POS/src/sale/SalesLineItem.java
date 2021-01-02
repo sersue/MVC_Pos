@@ -20,6 +20,10 @@ public class SalesLineItem {
 	public int getquantity() {
 		return quantity;
 	}
+	@Override
+	public String toString() {
+		return "" + desc + ":" + quantity + "개";
+	}
 	
 
 }

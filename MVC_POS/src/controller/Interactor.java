@@ -15,7 +15,9 @@ public class Interactor {
 	private String itemid;
 	private int quantity;
 	private Sale currentSale;
-	
+	private ProductCatalog spec;
+	private ProductDescription desc;
+	ArrayList<SalesLineItem> result;
 	 public Interactor(ProductCatalog productcatalog) {
 		 super();
 		 this.productcatalog = productcatalog;
@@ -24,23 +26,25 @@ public class Interactor {
 
 	public void makeNewSale(){
 		currentSale = new Sale();
-		System.out.println("new Sale 생성 !");
+		System.out.println("Sale 시작!");
 		
      }
 	
 	
     public ArrayList<SalesLineItem> enterItem(String itemid,int quantity){
     	
-    	 ProductCatalog spec = new ProductCatalog();
-    	 System.out.println("Searching at productCatalog: Please Wait");
-    	 ProductDescription desc = spec.getProductDesc(itemid); 
-    
-    	 ArrayList<SalesLineItem> result = currentSale.makeLineItem(desc,quantity);
+    	 spec = new ProductCatalog();
+//    	 System.out.println("Searching at productCatalog: Please Wait");
+    	 desc = spec.getProductDesc(itemid); 
+    	 result = currentSale.makeLineItem(desc,quantity);
     	 return result;
 
     }
-//     public void endSale(){
-//
-//     }
+     public int makePayment(int quantity){
+    	 Sale EndSale = new Sale();
+    	 int payment=EndSale.makePayment(result,quantity);
+    	 return payment;
+
+     }
 
 }

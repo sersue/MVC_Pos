@@ -6,7 +6,7 @@ import database.ProductCatalog;
 public class ProductDescription {
 	
 	private String id;
-	private String price;
+	private int price;
 	private String description;
 	
 	
@@ -15,7 +15,7 @@ public class ProductDescription {
 		return description+":"+ price + "Won";
 	}
 
-	public ProductDescription(String id ,String price, String description) {
+	public ProductDescription(String id ,int price, String description) {
 		
 		// TODO Auto-generated constructor stub
 		this.id = id;
@@ -26,7 +26,7 @@ public class ProductDescription {
 	public String getItemID() {
 		return id;
 	}
-	public String getMoney() {
+	public int getMoney() {
 		return price;
 	}
 	public String getdescription() {
