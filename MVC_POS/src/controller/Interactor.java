@@ -37,14 +37,20 @@ public class Interactor {
 //    	 System.out.println("Searching at productCatalog: Please Wait");
     	 desc = spec.getProductDesc(itemid); 
     	 result = currentSale.makeLineItem(desc,quantity);
+    	 
+ 
     	 return result;
 
     }
-     public int makePayment(int quantity){
-    	 Sale EndSale = new Sale();
-    	 int payment=EndSale.makePayment(result,quantity);
-    	 return payment;
 
-     }
+	public int makePayment(int quantity) {
+		Sale EndSale = new Sale();
+		int payment =0;
+   	 	payment = EndSale.makePayment(result);
+		// TODO Auto-generated method stub
+   	 	return payment;
+		
+	}
+     
 
 }

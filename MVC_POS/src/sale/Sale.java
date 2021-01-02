@@ -29,15 +29,20 @@ public class Sale {
 
 	}
 
-	public int makePayment(ArrayList<SalesLineItem> result, int quantity) {
+	public int makePayment(ArrayList<SalesLineItem> result) {
 		// TODO Auto-generated method stub
 		int pay =0;
+		int quan = 0;
+		int price =0;
+		
 		for (int i=0;i<result.size();i++) {
-			pay = pay + (result.get(i).getdesc().getMoney())*quantity;
+			pay =(result.get(i).getdesc().getMoney());
+			quan = (result.get(i).getquantity());
+			price = price + pay*quan;
 		}
 		
 
-		return pay;
+		return price;
 	}
 	
 	

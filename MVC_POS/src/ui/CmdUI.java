@@ -57,7 +57,8 @@ public class CmdUI {
         System.out.println("enter Quantity : ");
         quantity = scanner.nextInt();
 
-        System.out.println(interactor.enterItem(itemid,quantity));       
+        System.out.println(interactor.enterItem(itemid,quantity));  
+             
 
     }
     public void endSale(){
@@ -65,8 +66,8 @@ public class CmdUI {
     }
     private void Payment() {
 		// TODO Auto-generated method stub
-        System.out.println("Total price is : ");
-        System.out.println(interactor.makePayment(quantity));       
+    	System.out.println(interactor.makePayment(quantity));  
+        
 
 	}
     
