@@ -21,7 +21,12 @@ public class Sale {
 
 	public ArrayList<SalesLineItem> makeLineItem(ProductDescription desc, int quantity) {
 		// TODO Auto-generated method stub 
-	    sl.add(new SalesLineItem(desc,quantity));
+		if(desc!=null) {
+			sl.add(new SalesLineItem(desc,quantity));
+		}
+		else {
+			
+		}
 //	    System.out.println(sl);
 		return sl;
 
