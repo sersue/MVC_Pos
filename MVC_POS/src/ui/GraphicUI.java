@@ -39,15 +39,17 @@ public class GraphicUI extends JFrame {
         scroll.setBounds(18,249,640,133);
         getContentPane().add(scroll);
         
+        
         //title
-        JLabel title_lb = new JLabel("Welcome to O_Market");
+        JLabel title_lb = new JLabel("                         Welcome to O_Market                               ");
         title_lb.setBounds(208,20,210,16);
         title_lb.setFont(new Font("Lucida Grande",Font.PLAIN,15));
         getContentPane().add(title_lb);
+        add(title_lb);
+
         
         //Textfield
-        
-        
+
         desc_lb = new JLabel("Description");
         desc_tf = new JTextField(10);
         
@@ -64,12 +66,25 @@ public class GraphicUI extends JFrame {
         total_tf = new JTextField(10);  
 
         
-       
+        JLabel itemidfield = new JLabel("   Item id : ");
         String [] items = interactor.getitemid();
         Container c = getContentPane();
         c.setLayout(new FlowLayout());
         JComboBox combo = new JComboBox(items);
+        c.add(itemidfield);
         c.add(combo);
+        
+        JLabel quantityfield = new JLabel("      Quantity : ");
+        Integer value = new Integer(1);
+        Integer min = new Integer(1);
+        Integer max = new Integer(10);
+        Integer step = new Integer(1);
+
+
+        SpinnerNumberModel numberModel = new SpinnerNumberModel(value,min,max,step);
+        JSpinner spinner = new JSpinner(numberModel);
+        c.add(quantityfield);
+        c.add(spinner);
         
     
       
@@ -93,7 +108,7 @@ public class GraphicUI extends JFrame {
         //button
         JPanel buttonPanel = new JPanel();
         JButton NewSalebutton = new JButton("New Sale");
-        
+       
        
         JButton EnterItembutton = new JButton("EnterItem");
         JButton EndSalebutton = new JButton("EndSale");
@@ -102,7 +117,6 @@ public class GraphicUI extends JFrame {
         buttonPanel.add(EnterItembutton);
         buttonPanel.add(EndSalebutton);
         
-        add(title_lb);
         add(descPanel);
         add(pricePanel);
         add(subtotalPanel);
