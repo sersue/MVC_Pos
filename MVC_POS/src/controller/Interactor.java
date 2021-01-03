@@ -51,6 +51,11 @@ public class Interactor {
    	 	return payment;
 		
 	}
+	
+	public String[] getitemid() {
+		ProductCatalog items = new ProductCatalog(); 	
+		return items.getitemid();
+	}
      
 
 }

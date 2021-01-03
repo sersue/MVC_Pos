@@ -24,7 +24,7 @@ public class Main {
 //		 cmd_ui.start();
 		 
 		 graphic_ui= new GraphicUI(interactor);
-		 
+		 graphic_ui.start();
 		 
 //		 
 		 

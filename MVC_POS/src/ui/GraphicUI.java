@@ -1,6 +1,8 @@
 package ui;
 
 import java.awt.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 import javax.swing.border.*;
 
@@ -12,7 +14,7 @@ public class GraphicUI extends JFrame {
     private Interactor interactor;
 
     private JTextField desc_tf,price_tf,subtotal_tf,tax_tf,total_tf,amout_tf,balance_tf;
-    private JLabel title_lb,desc_lb,price_lb,subtotal_lb,tax_lb,total_lb,amout_lb,balance_lb;
+    private JLabel desc_lb,price_lb,subtotal_lb,tax_lb,total_lb,amout_lb,balance_lb;
     private JTextArea textArea;
     
     public GraphicUI(Interactor interactor)
@@ -26,20 +28,50 @@ public class GraphicUI extends JFrame {
 		// TODO Auto-generated method stub
 		getContentPane().setLayout(null);
 		setLayout(new FlowLayout());
-        title_lb = new JLabel("Welcome to O_Market");
+        
+        
+        //textArea
+        textArea = new JTextArea(6,80);
+        textArea.setEditable(false);
+        textArea.setVisible(true);
+        JScrollPane scroll = new JScrollPane(textArea);
+        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scroll.setBounds(18,249,640,133);
+        getContentPane().add(scroll);
+        
+        //title
+        JLabel title_lb = new JLabel("Welcome to O_Market");
+        title_lb.setBounds(208,20,210,16);
+        title_lb.setFont(new Font("Lucida Grande",Font.PLAIN,15));
+        getContentPane().add(title_lb);
         
         //Textfield
+        
+        
         desc_lb = new JLabel("Description");
-        price_lb = new JLabel("Price");
-        subtotal_lb = new JLabel("SubTotal");
-        tax_lb = new JLabel("Tax");
-        total_lb = new JLabel("Total");    
-
         desc_tf = new JTextField(10);
+        
+        price_lb = new JLabel("Price");
         price_tf = new JTextField(10);
+        
+        subtotal_lb = new JLabel("SubTotal");
         subtotal_tf = new JTextField(10);
+
+        tax_lb = new JLabel("Tax");
         tax_tf = new JTextField(10);
-        total_tf = new JTextField(10);      
+
+        total_lb = new JLabel("Total");   
+        total_tf = new JTextField(10);  
+
+        
+       
+        String [] items = interactor.getitemid();
+        Container c = getContentPane();
+        c.setLayout(new FlowLayout());
+        JComboBox combo = new JComboBox(items);
+        c.add(combo);
+        
+    
       
         JPanel descPanel = new JPanel();
         JPanel pricePanel = new JPanel();
@@ -82,6 +114,19 @@ public class GraphicUI extends JFrame {
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
+	
+	public void start() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					setVisible(true);
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		}
 
     }
     

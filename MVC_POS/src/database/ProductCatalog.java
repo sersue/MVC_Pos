@@ -1,7 +1,8 @@
 package database;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.util.Iterator;
 import java.util.Map;
 
 import database.ProductDescription;
@@ -27,7 +28,7 @@ public class ProductCatalog {
 		desc2 = new ProductDescription(id2,fruit_price,"banna");
 		desc3 = new ProductDescription(id3,book_price,"book");
 
-
+		
 		map.put(id1,desc1);
 		map.put(id2,desc2);
 		map.put(id3,desc3);
@@ -48,5 +49,16 @@ public class ProductCatalog {
 		return re_itemid;
 		
 	}
-
+	
+	public String[] getitemid() {
+		
+		String[] it = new String[map.size()];
+		Iterator<String> keys = map.keySet().iterator();
+		for(int i=0;i<map.size();i++) {
+			String key = keys.next();
+			it[i] = key;
+		}
+		
+		return it;
+	}
 }
