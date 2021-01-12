@@ -58,6 +58,10 @@ public class Interactor {
    	 	return final_payment;
 
 	}
+	public double getTax() {
+		double tax = payment * 0.1;
+		return tax;
+	}
 	
 	public String[] getitemid() {
 		ProductCatalog items = new ProductCatalog(); 	

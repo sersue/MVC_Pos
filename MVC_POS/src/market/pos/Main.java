@@ -20,11 +20,11 @@ public class Main {
     	 productcatalog.ProductCatalog1();
 		 Interactor interactor = new Interactor(productcatalog);
 //	
-		 cmd_ui = new CmdUI(interactor);
-		 cmd_ui.start();
+//		 cmd_ui = new CmdUI(interactor);
+//		 cmd_ui.start();
 		 
-//		 graphic_ui= new GraphicUI(interactor);
-//		 graphic_ui.start();
+		 graphic_ui= new GraphicUI(interactor);
+		 graphic_ui.start();
 		 
 //		 
 		 

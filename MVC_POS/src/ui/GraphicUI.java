@@ -136,10 +136,14 @@ public class GraphicUI extends JFrame {
 	private void newsalebutton() {
 		// TODO Auto-generated method stub
 		interactor.makeNewSale();
+		textArea.append("Hi New Sale Start!");
+
 	}
 	
 	private void enterbutton() {
 		//값 받아
+		textArea.setText(null);
+
 		String itemid = combo.getSelectedItem().toString();
 		int quantity = (int) spinner.getModel().getValue();
 		//interactor에게 넘김  
@@ -156,11 +160,14 @@ public class GraphicUI extends JFrame {
 		int SubPrice = interactor.makePayment();
 		 subtotal_tf.setText(String.valueOf(SubPrice));
 	}
-	 private void endsalebutton() {
-			
+	 private void endsalebutton() {		
+		 textArea.setText(null);
 		 double total_price = interactor.afterTax();
 		 total_tf.setText(String.valueOf(total_price));
+		 double tax= interactor.getTax();
+		 tax_tf.setText(String.valueOf(tax));
 		 
+		textArea.append("Our cashier will help you for paying. Thank you for comming!");
 
 		}
 

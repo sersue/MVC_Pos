@@ -43,17 +43,13 @@ public class Sale {
 			quan = (result.get(i).getquantity());
 			price = price + pay*quan;
 		}
-		
-		
-
 		return price;
 	}
 	
 	public double calcTax(int price) {
 		double tax = 0;
 		tax =price*0.1;
-		
-		return price+tax;
+		return tax+price;
 	}
 	
 	
