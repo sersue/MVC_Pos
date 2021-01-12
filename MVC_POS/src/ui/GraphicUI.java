@@ -1,12 +1,15 @@
 package ui;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.border.*;
 
 import controller.Interactor;
+import sale.SalesLineItem;
 
 @SuppressWarnings("serial")
 public class GraphicUI extends JFrame {
@@ -16,6 +19,12 @@ public class GraphicUI extends JFrame {
     private JTextField desc_tf,price_tf,subtotal_tf,tax_tf,total_tf,amout_tf,balance_tf;
     private JLabel desc_lb,price_lb,subtotal_lb,tax_lb,total_lb,amout_lb,balance_lb;
     private JTextArea textArea;
+    String [] items;
+    private  JComboBox combo = new JComboBox(items);
+    Integer value,min,max,step; 
+    private SpinnerNumberModel numberModel = new SpinnerNumberModel(value,min,max,step);
+    private JSpinner spinner = new JSpinner(numberModel);
+    
     
     public GraphicUI(Interactor interactor)
     {
@@ -50,27 +59,27 @@ public class GraphicUI extends JFrame {
         
         //Textfield
 
-        desc_lb = new JLabel("Description");
+        desc_lb = new JLabel("Description :");
         desc_tf = new JTextField(10);
         
-        price_lb = new JLabel("Price");
+        price_lb = new JLabel("Price :");
         price_tf = new JTextField(10);
         
-        subtotal_lb = new JLabel("SubTotal");
+        subtotal_lb = new JLabel("SubTotal :");
         subtotal_tf = new JTextField(10);
 
-        tax_lb = new JLabel("Tax");
+        tax_lb = new JLabel("Tax :");
         tax_tf = new JTextField(10);
 
-        total_lb = new JLabel("Total");   
+        total_lb = new JLabel("Total :");   
         total_tf = new JTextField(10);  
 
         
         JLabel itemidfield = new JLabel("   Item id : ");
-        String [] items = interactor.getitemid();
+        items = interactor.getitemid();
         Container c = getContentPane();
         c.setLayout(new FlowLayout());
-        JComboBox combo = new JComboBox(items);
+       
         c.add(itemidfield);
         c.add(combo);
         
@@ -81,8 +90,7 @@ public class GraphicUI extends JFrame {
         Integer step = new Integer(1);
 
 
-        SpinnerNumberModel numberModel = new SpinnerNumberModel(value,min,max,step);
-        JSpinner spinner = new JSpinner(numberModel);
+       
         c.add(quantityfield);
         c.add(spinner);
         
@@ -104,30 +112,52 @@ public class GraphicUI extends JFrame {
         taxPanel.add(tax_tf);
         totalPanel.add(total_lb);
         totalPanel.add(total_tf);
-      
-        //button
-        JPanel buttonPanel = new JPanel();
-        JButton NewSalebutton = new JButton("New Sale");
-       
-       
-        JButton EnterItembutton = new JButton("EnterItem");
-        JButton EndSalebutton = new JButton("EndSale");
 
-        buttonPanel.add(NewSalebutton);
-        buttonPanel.add(EnterItembutton);
-        buttonPanel.add(EndSalebutton);
-        
+        makeButton("newSale",(e)->makenew(),18,148,20,10);
+        makeButton("EnterItem",(e)->enter(),18,148,20,10);
+        makeButton("EndSale",(e)->endsale(),18,148,20,10);
+
+
         add(descPanel);
         add(pricePanel);
         add(subtotalPanel);
         add(taxPanel);
         add(totalPanel);
-        add(buttonPanel);
+
+        
         setLocation(150,200);
         setSize(500,500);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
+	
+	private void makenew() {
+		// TODO Auto-generated method stub
+		interactor.makeNewSale();
+	}
+	
+	private void enter() {
+		// TODO Auto-generated method stub
+		String itemid = combo.getSelectedItem().toString();
+		int quantity = (int) spinner.getModel().getValue();
+		ArrayList<SalesLineItem> result = interactor.enterItem(itemid, quantity);
+		textArea.append(result.toString());
+	}
+	 private void endsale() {
+			// TODO Auto-generated method stub
+			
+		}
+
+	
+
+	private void makeButton(String title, ActionListener listener, int x, int y,int w,int h) {
+     	JButton button = new JButton(title);
+     	button.addActionListener(listener);
+     	button.setBounds(x,y,w,h);
+     	
+     	getContentPane().add(button);
+     	
+     }
 	
 	public void start() {
 		EventQueue.invokeLater(new Runnable() {
