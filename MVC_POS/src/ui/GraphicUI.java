@@ -1,7 +1,6 @@
 package ui;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
@@ -16,14 +15,14 @@ public class GraphicUI extends JFrame {
 	
     private Interactor interactor;
 
-    private JTextField desc_tf,price_tf,subtotal_tf,tax_tf,total_tf,amout_tf,balance_tf;
-    private JLabel desc_lb,price_lb,subtotal_lb,tax_lb,total_lb,amout_lb,balance_lb;
+    private JTextField desc_tf,price_tf,subtotal_tf,tax_tf,total_tf;
+    private JLabel desc_lb,price_lb,subtotal_lb,tax_lb,total_lb;
     private JTextArea textArea;
     String [] items;
-    private  JComboBox combo = new JComboBox(items);
+    private  JComboBox combo;
     Integer value,min,max,step; 
-    private SpinnerNumberModel numberModel = new SpinnerNumberModel(value,min,max,step);
-    private JSpinner spinner = new JSpinner(numberModel);
+    private SpinnerNumberModel numberModel;
+    private JSpinner spinner;
     
     
     public GraphicUI(Interactor interactor)
@@ -79,16 +78,19 @@ public class GraphicUI extends JFrame {
         items = interactor.getitemid();
         Container c = getContentPane();
         c.setLayout(new FlowLayout());
-       
+        combo = new JComboBox(items);
         c.add(itemidfield);
         c.add(combo);
         
         JLabel quantityfield = new JLabel("      Quantity : ");
-        Integer value = new Integer(1);
-        Integer min = new Integer(1);
-        Integer max = new Integer(10);
-        Integer step = new Integer(1);
+        value = new Integer(1);
+        min = new Integer(1);
+        max = new Integer(10);
+        step = new Integer(1);
+        
+        numberModel = new SpinnerNumberModel(value,min,max,step);
 
+        spinner = new JSpinner(numberModel);
 
        
         c.add(quantityfield);
@@ -113,9 +115,9 @@ public class GraphicUI extends JFrame {
         totalPanel.add(total_lb);
         totalPanel.add(total_tf);
 
-        makeButton("newSale",(e)->makenew(),18,148,20,10);
-        makeButton("EnterItem",(e)->enter(),18,148,20,10);
-        makeButton("EndSale",(e)->endsale(),18,148,20,10);
+        makeButton("newSale",(e)->newsalebutton(),18,148,20,10);
+        makeButton("EnterItem",(e)->enterbutton(),10,100,40,30);
+        makeButton("EndSale",(e)->endsalebutton(),13,118,60,50);
 
 
         add(descPanel);
@@ -131,21 +133,35 @@ public class GraphicUI extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
-	private void makenew() {
+	private void newsalebutton() {
 		// TODO Auto-generated method stub
 		interactor.makeNewSale();
 	}
 	
-	private void enter() {
-		// TODO Auto-generated method stub
+	private void enterbutton() {
+		//값 받아
 		String itemid = combo.getSelectedItem().toString();
 		int quantity = (int) spinner.getModel().getValue();
+		//interactor에게 넘김  
 		ArrayList<SalesLineItem> result = interactor.enterItem(itemid, quantity);
+		
+		//interactor에게 넘어온 값 ui에 뿌려주기 
+		String Description = interactor.Description(itemid);
+		desc_tf.setText(Description);
+		
+		int Price = interactor.price(itemid,quantity);
+		price_tf.setText(String.valueOf(Price));
 		textArea.append(result.toString());
+		
+		int SubPrice = interactor.makePayment();
+		 subtotal_tf.setText(String.valueOf(SubPrice));
 	}
-	 private void endsale() {
-			// TODO Auto-generated method stub
+	 private void endsalebutton() {
 			
+		 double total_price = interactor.afterTax();
+		 total_tf.setText(String.valueOf(total_price));
+		 
+
 		}
 
 	

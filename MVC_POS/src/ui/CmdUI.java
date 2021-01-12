@@ -64,8 +64,9 @@ public class CmdUI {
    
     private void Payment() {
 		// TODO Auto-generated method stub
-    	System.out.println("Total price = "+interactor.makePayment(quantity));  
-        
+    	System.out.println("Before Tax = "+interactor.makePayment());  
+    	System.out.println("After Tax [Total] = "+interactor.afterTax());  
+
 
 	}
     

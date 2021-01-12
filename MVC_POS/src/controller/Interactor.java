@@ -17,6 +17,8 @@ public class Interactor {
 	private Sale currentSale;
 	private ProductCatalog spec;
 	private ProductDescription desc;
+	private Sale EndSale;
+	private int payment;
 	ArrayList<SalesLineItem> result;
 	 public Interactor(ProductCatalog productcatalog) {
 		 super();
@@ -43,19 +45,39 @@ public class Interactor {
 
     }
 
-	public int makePayment(int quantity) {
-		Sale EndSale = new Sale();
-		int payment =0;
+	public int makePayment() {
+		EndSale = new Sale();
+		payment =0;
    	 	payment = EndSale.makePayment(result);
-		// TODO Auto-generated method stub
    	 	return payment;
 		
+	}
+	public double afterTax() {
+		double final_payment=0;
+		final_payment = EndSale.calcTax(payment);
+   	 	return final_payment;
+
 	}
 	
 	public String[] getitemid() {
 		ProductCatalog items = new ProductCatalog(); 	
 		return items.getitemid();
 	}
+	public int price(String itemid,int quantity) {
+		ProductCatalog items1 = new ProductCatalog();
+		int subprice = (items1.getProductDesc(itemid).getMoney())*quantity;
+		return subprice;
+
+	}
+	public String Description(String itemid) {
+		ProductCatalog items2 = new ProductCatalog();
+		String description = items2.getProductDesc(itemid).getdescription();
+		return description;
+
+	}
+
+	
+	
      
 
 }
